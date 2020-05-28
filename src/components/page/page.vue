@@ -1,14 +1,18 @@
 <template>
-    <ui-page :title="title || page.title" :page="page" :backable="backable" ref="page">
+    <ui-page :title="title || page.title" :page="page" ref="page" :backable="backable">
         <div slot="drawer">
-            <ui-appbar title=""></ui-appbar>
+            <div class="header">
+                <img class="logo" src="https://icons.yunser.com/icons/tool.svg">
+            </div>
             <ui-list @itemClick="toggle()">
                 <ui-list-item title="首页" to="/">
-                    <ui-icon slot="left" value="grade"/>
+                    <ui-icon slot="left" value="home"/>
                 </ui-list-item>
-                <ui-list-item title="关于" to="/about">
-                    <ui-icon slot="left" value="grade"/>
+                <ui-list-item title="关于" href="https://project.yunser.com/products/6fe08dd0a0ba11eaa3824f27432dbf16" target="_blank">
+                    <ui-icon slot="left" value="info"/>
                 </ui-list-item>
+            </ui-list>
+            <ui-list @itemClick="toggle()">
             </ui-list>
         </div>
         <slot></slot>
@@ -54,30 +58,16 @@
 </script>
 
 <style lang="scss" scoped>
-    .ui-page {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-    }
-    .page-body {
-        min-height: 500px;
-    }
-    .container-main {
-        padding-top: 16px;
-    }
-    .page-content {
-        position: absolute;
-        top: 0;
-        left: 256px;
-        right: 0;
-        bottom: 0;
-    }
-    .page-container {
-        padding: 16px;
-    }
-    .admin-container {
-        padding: 16px;
-    }
+.ic {
+    color: #009688;
+}
+.header {
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+.logo {
+    display: block;
+    width: 80px;
+    margin: 0 auto;
+}
 </style>
